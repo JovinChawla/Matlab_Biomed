@@ -1,0 +1,17 @@
+function [t, y] = Euler_forward_method(f, xinit, xend, t_end, n)
+
+h = (t_end - xinit)/n;
+
+t = xinit:h:t_end;
+y = zeros(1, length(t));
+
+t(1) = xinit;
+y(1) = xend;
+
+for i=2:length(t)
+    y(i) = y(i-1) + h*feval(f, y(i-1), t(i-1));
+end
+
+
+
+end
